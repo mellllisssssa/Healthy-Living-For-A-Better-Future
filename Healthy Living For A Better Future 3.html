@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Healthy Living for a Better Future</title>
+<style>
+/* PARALLAX BACKGROUND IMAGE */
+.hero-bg-img{
+    position:absolute;
+    right:-40px;
+    top:20px;
+    width:350px;
+    opacity:0.14;
+    z-index:0;
+    pointer-events:none;
+    animation: float 4.5s infinite ease-in-out;
+}
+
+/* HERO TITLE GLOW EFFECT */
+.hero-title:hover{
+    text-shadow:0 0 12px rgba(74,167,127,0.5);
+    transition:0.3s;
+}
+
+.hero-subtext:hover{
+    text-shadow:0 0 8px rgba(74,167,127,0.3);
+}
+
+/* SPARKLE PARTICLES */
+#slide1{
+    position:relative;
+    overflow:hidden;
+}
+
+#slide1::before, 
+#slide1::after, 
+.sparkle{
+    position:absolute;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:white;
+    opacity:0.7;
+    filter:blur(2px);
+    animation: sparkle 4s infinite ease-in-out;
+}
+
+.sparkle:nth-child(1){top:40px; left:120px; animation-delay:0.5s;}
+.sparkle:nth-child(2){top:180px; left:260px; animation-delay:1s;}
+.sparkle:nth-child(3){top:120px; left:40px; animation-delay:1.7s;}
+.sparkle:nth-child(4){top:220px; left:340px; animation-delay:2.4s;}
+
+@keyframes sparkle{
+    0%{opacity:0;}
+    25%{opacity:1; transform:scale(1.4);}
+    50%{opacity:0.6; transform:scale(1);}
+    100%{opacity:0;}
+}
+
+/* SCROLL DOWN ARROW */
+.scroll-down{
+    width:26px;
+    height:26px;
+    border-bottom:4px solid var(--accent);
+    border-right:4px solid var(--accent);
+    transform:rotate(45deg);
+    margin:30px auto 0;
+    animation: bounceArrow 1.6s infinite;
+}
+
+@keyframes bounceArrow{
+    0%,100%{transform:translateY(0) rotate(45deg);}
+    50%{transform:translateY(10px) rotate(45deg);}
+}
+
+/* BUTTON SHINE EFFECT */
+.topic-btn{
+    position:relative;
+    overflow:hidden;
+}
+
+.topic-btn::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:80%;
+    height:100%;
+    background:rgba(255,255,255,0.3);
+    transform:skewX(-20deg);
+    animation: shine 3.5s infinite;
+}
+
+@keyframes shine{
+    0%{left:-100%;}
+    40%{left:120%;}
+    100%{left:120%;}
+}
+
+/* PAGE TRANSITION FADE */
+.page{
+    opacity:0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.page.active{
+    opacity:1;
+}
+
+/* EXISTING ANIMATIONS FROM BEFORE */
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+    100%{transform:translateY(0);}
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* HERO BACKGROUND IMAGE BEHIND TEXT */
+.hero-wrapper{
+    position:relative;
+}
+
+.hero-bg-img{
+    position:absolute;
+    right:-40px;
+    top:20px;
+    width:320px;
+    opacity:0.15;
+    z-index:0;
+    pointer-events:none;
+    animation: float 4s infinite ease-in-out;
+}
+
+.hero-wrapper h1,
+.hero-wrapper p{
+    position:relative;
+    z-index:2;
+}
+
+/* FLOATING SHAPES DECORATION */
+#slide1::before,
+#slide1::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:rgba(255,255,255,0.4);
+    border-radius:50%;
+    filter:blur(18px);
+    animation: drift 8s infinite alternate ease-in-out;
+    z-index:0;
+}
+
+#slide1::before{
+    top:30px;
+    left:-60px;
+}
+
+#slide1::after{
+    bottom:20px;
+    right:-40px;
+    animation-delay:2s;
+}
+
+/* SLIDE 1 MOVING GRADIENT */
+#slide1{
+    background: linear-gradient(120deg, #d9f7ec 0%, #e0f4f1 50%, #f4fffb 100%);
+    background-size: 200% 200%;
+    animation: gradientMove 12s infinite ease-in-out;
+}
+
+/* KEYFRAMES */
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+@keyframes drift{
+    0%{transform:translate(0,0);}
+    100%{transform:translate(30px,-20px);}
+}
+
+/* TOPIC BUTTON ANIMATION */
+.topic-btn{
+    opacity:0;
+    animation: fadeUp 1.2s forwards;
+}
+
+.topic-btn:nth-child(1){animation-delay:0.3s;}
+.topic-btn:nth-child(2){animation-delay:0.45s;}
+.topic-btn:nth-child(3){animation-delay:0.6s;}
+.topic-btn:nth-child(4){animation-delay:0.75s;}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* TEXT FADE IN */
+.fade-in{
+    opacity:0;
+    animation: fadeIn 1.4s forwards;
+}
+
+.fade-in.delay1{
+    animation-delay:.4s;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+:root{
+    --bg:#f0f8f7; --soft:#d9f7ec; --muted:#e0f4f1;
+    --accent:#4aa77f; --accent-dark:#399169; --text:#2d4a3a;
+    --card:#ffffff; --shadow:0 6px 18px rgba(45,74,58,0.08);
+}
+
+*{box-sizing:border-box;}
+body{margin:0; font-family:Inter, system-ui; background:var(--bg); color:var(--text);}
+a{color:var(--accent); text-decoration:none;}
+a:hover{text-decoration:underline;}
+header, section{padding:60px 20px;}
+.container{max-width:1200px; margin:0 auto;}
+
+.page{display:none;}
+.page.active{display:block;}
+
+#slide1, #slide2{background:var(--muted); text-align:center;}
+#slide1{background: linear-gradient(180deg, rgba(217,247,236,0.9), rgba(224,244,241,0.9)); box-shadow: var(--shadow);}
+#slide1 .inner{max-width:900px;}
+
+.button-grid{display:flex; gap:18px; flex-wrap:wrap; justify-content:center; margin-top:6px;}
+.topic-btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; min-width:220px; padding:14px 22px; background: linear-gradient(180deg,var(--accent), var(--accent-dark)); color:#fff; border-radius:12px; box-shadow:0 8px 20px rgba(74,167,127,0.18); font-weight:600; cursor:pointer; transition: transform .28s;}
+.topic-btn:hover{transform:translateY(-6px); box-shadow:0 18px 40px rgba(74,167,127,0.18);}
+.topic-btn:active{transform:translateY(-2px);}
+
+/* Cards */
+.subtopic{padding-top:40px; padding-bottom:40px;}
+.card{background: var(--card); border-radius:14px; box-shadow:var(--shadow); display:flex; flex-wrap:wrap; margin: 0 auto;}
+.card .text{flex:1 1 50%; padding:36px; text-align:left;}
+.card .media{flex:1 1 50%; min-height:260px; display:flex; align-items:center; justify-content:center; background: linear-gradient(180deg, rgba(234,249,242,0.6), rgba(255,255,255,0.4)); padding:28px;}
+.card .media img{max-width:100%; border-radius:10px; box-shadow:0 8px 24px rgba(45,74,58,0.06);}
+
+/* feedback */
+.feedback-section{background: linear-gradient(180deg, rgba(208,241,229,0.9), rgba(240,248,247,0.7)); padding:48px 20px; margin-top:18px;}
+.feedback-section input, .feedback-section textarea{width:100%; max-width:520px; padding:12px 14px; border-radius:10px; border:1px solid rgba(74,167,127,0.28); font-size:15px; margin-top:8px; resize:vertical;}
+textarea{min-height:110px;}
+.submit-btn{margin-top:12px; background: var(--accent); color:#fff; border:none; padding:12px 22px; border-radius:10px; cursor:pointer; font-weight:600;}
+.thankyou{display:none; margin-top:12px; color:#0b662d; font-weight:700;}
+
+/* back button */
+.back-btn{margin:20px auto 0; display:block; padding:12px 20px; background:var(--accent); color:#fff; border:none; border-radius:10px; cursor:pointer; max-width:180px; text-align:center;}
+.back-btn:hover{background:var(--accent-dark);}
+</style>
+</head>
+<body>
+
+<!-- MAIN PAGE -->
+<div id="mainPage" class="page active">
+    <header id="slide1">
+    <div class="inner container hero-wrapper">
+        <img class="hero-bg-img" src="https://cdn-icons-png.flaticon.com/512/2966/2966483.png" alt="">
+        <h1 class="fade-in hero-title">Healthy Living for a Better Future</h1>
+        <p class="fade-in delay1 hero-subtext">
+            A healthy lifestyle is the foundation for a brighter and longer future.By prioritizing proper nutrition, regular physical activity, mental well-being, and disease prevention, individuals can reduce the risk of illness and improve their overall quality of life. SDG 3 Good Health and Well-Being emphasizes the importance of ensuring healthy lives and promoting well-being for all at all ages. Adopting healthy habits today not only strengthens our bodies and minds but also contributes to healthier communities and a sustainable future for everyone.
+        </p>
+
+        <!-- Scroll Down Arrow -->
+        <div class="scroll-down"></div>
+    </div>
+	<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+</header>
+
+
+    <section id="slide2">
+        <div class="container">
+            <h2 style="margin-top:0;">~Step Into the World of Better Health~</h2>
+            <div class="button-grid">
+                <button class="topic-btn" data-target="topic1">Healthcare Access</button>
+                <button class="topic-btn" data-target="topic2">Mental Health</button>
+                <button class="topic-btn" data-target="topic3">Healthy Lifestyle</button>
+                <button class="topic-btn" data-target="topic4">Disease Prevention</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- TOPIC SECTIONS -->
+<section id="topic1" class="subtopic page">
+    <div class="card container">
+        <div class="text">
+            <h2>Healthcare Access</h2>
+            <p>
+			   Healthcare access is the ability of individuals to obtain necessary health services in a timely, affordable, and convenient way.
+			   It includes having nearby clinics or hospitals, enough doctors and nurses, proper medical equipment, and affordable treatment costs.
+			</p>
+            <p>
+			   Barriers such as high medical fees, lack of insurance, poor transportation, and rural distance can prevent people from getting the care they need. 
+               This can lead to health inequalities, where some communities face worse health outcomes simply because care is hard to reach.
+		    </p>
+            <p> To understand more about how countries improve healthcare access, visit: <a href="https://www.who.int/health-topics/universal-health-coverage" target="_blank" rel="noopener">WHO – Universal Health Coverage</a></p>
+        </div>
+        <div class="media">
+            <img src="https://www.techtarget.com/rms/xt/features/medical-team-technology.jpg" alt="Healthcare access">
+        </div>
+    </div>
+    <div class="feedback-section container">
+        <h3>Tell us what you think about Healthcare Access~</h3>
+        <form onsubmit="handleSubmit(event,this)" data-topic="Healthcare Access">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="comment" placeholder="Drop your thoughts here" required></textarea>
+            <button class="submit-btn" type="submit">Submit</button>
+            <div class="thankyou">Thank you for your comment!</div>
+        </form>
+    </div>
+    <button class="back-btn">← Back to Home Page</button>
+</section>
+
+<section id="topic2" class="subtopic page">
+    <div class="card container">
+        <div class="text">
+            <h2>Mental Health</h2>
+           <p> 
+			    Mental health is a state of emotional, psychological, and social well-being that influences how a person thinks, feels, and behaves.
+                Good mental health allows individuals to cope with everyday stress, work productively, build meaningful relationships, and contribute positively to their communities.
+		    </p>
+            <p> 
+			    Mental health is not only the absence of mental disorders—it also includes positive qualities such as happiness, resilience, emotional balance, and the ability to manage challenges.
+                Factors like genetics, social support, past experiences, and the environment can strengthen or weaken mental well-being.
+            </p>
+            <p> For more information and support, visit: <a href="https://mmha.org.my/" target="_blank" rel="noopener">MMHA - Malaysian Mental Health Association</a></p>
+        </div>
+        <div class="media">
+            <img src="https://med.stanford.edu/news/insights/2022/05/mental-health-hygiene-can-improve-mood-decrease-stress/_jcr_content/cq:featuredimage.coreimg.jpg/1746605184705/lksc.jpg" alt="Mental health">
+        </div>
+    </div>
+    <div class="feedback-section container">
+        <h3>Tell us what you think about Mental Health~</h3>
+        <form onsubmit="handleSubmit(event,this)" data-topic="Mental Health">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="comment" placeholder="Drop your thoughts here" required></textarea>
+            <button class="submit-btn" type="submit">Submit</button>
+            <div class="thankyou">Thank you for your comment!</div>
+        </form>
+    </div>
+    <button class="back-btn">← Back to Home Page</button>
+</section>
+
+<section id="topic3" class="subtopic page">
+    <div class="card container">
+        <div class="text">
+            <h2>Healthy Lifestyle</h2>
+            <p>A healthy lifestyle includes balanced nutrition, regular physical activity, restful sleep, stress management, and avoiding harmful habits. These actions reduce the risk of disease and improve quality of life.</p>
+            <h4>Physical health</h4>
+            <ul>
+                <li>Exercise 30 minutes most days</li>
+                <li>Eat fruits, vegetables, whole grains and lean proteins</li>
+                <li>Stay hydrated and get regular check-ups</li>
+                <li>Avoid tobacco and limit alcohol</li>
+            </ul>
+            <h4>Mental & emotional health</h4>
+            <ul>
+                <li>Prioritize quality sleep</li>
+                <li>Manage stress with mindfulness or hobbies</li>
+                <li>Stay socially connected and keep learning</li>
+            </ul>
+            <p>Try a short workout: <a href="https://www.youtube.com/watch?v=UItWltVZZmE" target="_blank" rel="noopener">20 MIN FULL BODY WORKOUT - Beginner Version</a></p>
+        </div>
+        <div class="media">
+            <img src="https://news.harvard.edu/wp-content/uploads/2018/04/healthy-habits.jpg" alt="Healthy habits">
+        </div>
+    </div>
+    <div class="feedback-section container">
+        <h3>Tell us what you think about Healthy Lifestyle~</h3>
+        <form onsubmit="handleSubmit(event,this)" data-topic="Healthy Lifestyle">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="comment" placeholder="Drop your thoughts here" required></textarea>
+            <button class="submit-btn" type="submit">Submit</button>
+            <div class="thankyou">Thank you for your comment!</div>
+        </form>
+    </div>
+    <button class="back-btn">← Back to Home Page</button>
+</section>
+
+<section id="topic4" class="subtopic page">
+    <div class="card container">
+        <div class="text">
+            <h2>Disease Prevention</h2>
+            <p>Disease prevention involves hygiene, vaccination, healthy lifestyle choices, and safe food handling to stop illness before it starts. Key practices include handwashing, staying up-to-date on immunizations, balanced diet, and exercise.</p>
+            <ul>
+                <li><strong>Hygiene:</strong> Wash hands, cover coughs/sneezes, handle food safely</li>
+                <li><strong>Medical:</strong> Vaccination, correct antibiotic use, seek timely care</li>
+                <li><strong>Lifestyle:</strong> Balanced diet, activity, avoid tobacco/excess alcohol</li>
+                <li><strong>Other:</strong> Practice safe sex, be mindful when traveling</li>
+            </ul>
+        </div>
+        <div class="media">
+            <img src="https://keck.usc.edu/disease-prevention-policy-and-global-health/wp-content/uploads/sites/94/2024/02/global-health.jpg" alt="Disease prevention">
+        </div>
+    </div>
+    <div class="feedback-section container">
+        <h3>Tell us what you think about Disease Prevention~</h3>
+        <form onsubmit="handleSubmit(event,this)" data-topic="Disease Prevention">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="email" name="email" placeholder="Your email" required>
+            <textarea name="comment" placeholder="Drop your thoughts here" required></textarea>
+            <button class="submit-btn" type="submit">Submit</button>
+            <div class="thankyou">Thank you for your comment!</div>
+        </form>
+    </div>
+    <button class="back-btn">← Back to Home Page</button>
+</section>
+
+<script>
+// Open topic page
+document.querySelectorAll('.topic-btn').forEach(btn=>{
+    btn.addEventListener('click',()=> {
+        const target = btn.getAttribute('data-target');
+        document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+    });
+});
+
+// Back to main page
+document.querySelectorAll('.back-btn').forEach(btn=>{
+    btn.addEventListener('click',()=> {
+        document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+        document.getElementById('mainPage').classList.add('active');
+    });
+});
+
+// Feedback submit handler
+function handleSubmit(e, form){
+    e.preventDefault();
+    const data = new FormData(form);
+    const payload = {
+        topic: form.getAttribute('data-topic'),
+        name: data.get('name'),
+        email: data.get('email'),
+        comment: data.get('comment'),
+        time: new Date().toISOString()
+    };
+    console.log('Feedback:', payload);
+    form.querySelector('.thankyou').style.display='block';
+    form.reset();
+    setTimeout(()=>{form.querySelector('.thankyou').style.display='none';},3500);
+}
+</script>
+
+</body>
+</html>
